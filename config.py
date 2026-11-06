@@ -17,8 +17,8 @@ def _get(name: str, default: str | None = None, required: bool = True) -> str:
 TELEGRAM_BOT_TOKEN = _get("TELEGRAM_BOT_TOKEN")
 OWNER_TELEGRAM_ID = int(_get("OWNER_TELEGRAM_ID"))
 
-GEMINI_API_KEY = _get("GEMINI_API_KEY")
-GEMINI_MODEL = _get("GEMINI_MODEL", "gemini-2.5-flash", required=False)
+ANTHROPIC_API_KEY = _get("ANTHROPIC_API_KEY")
+CLAUDE_MODEL = _get("CLAUDE_MODEL", "claude-sonnet-5-5", required=False)
 
 APIFY_TOKEN = _get("APIFY_TOKEN")
 
@@ -31,7 +31,7 @@ DAILY_LIMIT = int(_get("DAILY_LIMIT", "30", required=False))
 # Holatlar (Sheets'dagi "holat" ustuni uchun)
 STATUSES = [
     "yangi", "yuborildi", "javob berdi", "namuna ko'rsatildi",
-    "sinovda", "mijoz", "rad etdi",
+    "sinovda", "mijoz", "rad etdi", "o'tkazildi",
 ]
 
 
@@ -43,7 +43,7 @@ if __name__ == "__main__":
     print("✅ .env muvaffaqiyatli o'qildi")
     print("Bot tokeni :", mask(TELEGRAM_BOT_TOKEN))
     print("Owner ID   :", OWNER_TELEGRAM_ID)
-    print("Gemini     :", mask(GEMINI_API_KEY), GEMINI_MODEL)
+    print("Claude     :", mask(ANTHROPIC_API_KEY), CLAUDE_MODEL)
     print("Apify      :", mask(APIFY_TOKEN))
     print("Sheet ID   :", mask(SPREADSHEET_ID))
     print("Kunlik limit:", DAILY_LIMIT, "| Vaqt zonasi:", TIMEZONE)
